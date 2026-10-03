@@ -1,0 +1,937 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: #174b3a;
+    background: #fff;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: min(1200px, 94%);
+    margin: auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    background: #fff;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+    position: relative;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    width: 220px;
+    height: auto;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav a {
+    color: #263b3a;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 13px;
+    border-radius: 20px;
+    transition: .3s;
+}
+
+.nav a:hover,
+.nav a.active {
+    background: #006b4f;
+    color: #fff;
+}
+
+.nav .login-btn {
+    background: #006b4f;
+    color: #fff;
+    padding: 10px 18px;
+    margin-left: 10px;
+}
+
+.menu-toggle {
+    display: none;
+    border: 0;
+    background: #006b4f;
+    color: white;
+    font-size: 22px;
+    width: 42px;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: relative;
+    height: 360px;
+}
+
+.hero-slide > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 9%;
+    transform: translateY(-50%);
+}
+
+.hero-content h1 {
+    color: #006b4f;
+    font-size: clamp(30px, 4vw, 50px);
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+.hero-content p {
+    margin: 12px 0 20px;
+    color: #31544a;
+    font-size: 15px;
+}
+
+.shop-btn {
+    display: inline-block;
+    background: #006b4f;
+    color: white;
+    padding: 11px 22px;
+    border-radius: 25px;
+    font-size: 14px;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(0,0,0,.45);
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.slider-arrow.left {
+    left: 15px;
+}
+
+.slider-arrow.right {
+    right: 15px;
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.section-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.section-title h2 {
+    color: #086b50;
+    font-size: 25px;
+    white-space: nowrap;
+}
+
+.section-title span {
+    width: 55px;
+    height: 2px;
+    background: #1b755c;
+    position: relative;
+}
+
+.section-title span:first-child::after {
+    content: "🌿";
+    position: absolute;
+    right: -3px;
+    top: -12px;
+}
+
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
+.products-section {
+    padding: 15px 0 25px;
+    background: #fff;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.category {
+    border: none;
+    background: #f1f4f2;
+    padding: 7px 17px;
+    border-radius: 20px;
+    font-size: 11px;
+    color: #354541;
+    cursor: pointer;
+}
+
+.category.active,
+.category:hover {
+    background: #007052;
+    color: #fff;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 8px;
+}
+
+.product-card {
+    border: 1px solid #e5e8e7;
+    border-radius: 6px;
+    padding: 6px;
+    text-align: center;
+    background: #fff;
+    transition: .3s;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+}
+
+.product-image {
+    height: 125px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image img {
+    height: 115px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.product-card h3 {
+    font-size: 10px;
+    line-height: 1.35;
+    min-height: 28px;
+    color: #174b3a;
+}
+
+.price {
+    font-size: 10px;
+    font-weight: 600;
+    margin: 3px 0 6px;
+    color: #111;
+}
+
+.cart-btn {
+    width: 100%;
+    border: none;
+    background: #006b4f;
+    color: #fff;
+    font-size: 9px;
+    padding: 6px 3px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+  
+/* =========================================================
+   INFO
+========================================================= */
+
+.info-section {
+    padding: 25px 0;
+    background: linear-gradient(
+        to bottom,
+        #f4f9ef,
+        #fff
+    );
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.info-box {
+    display: flex;
+    gap: 12px;
+    padding: 10px 25px;
+    border-right: 1px solid #d5ddd8;
+}
+
+.info-box:last-child {
+    border-right: none;
+}
+
+.info-icon {
+    min-width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #006b4f;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.info-box h3 {
+    color: #006b4f;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.info-box p {
+    color: #55625e;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+
+ 
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .nav a {
+        font-size: 11px;
+        padding: 8px 9px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .header {
+        height: 65px;
+    }
+
+    .logo img {
+        width: 170px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: white;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    }
+
+    .nav.show {
+        display: flex;
+    }
+
+    .nav a {
+        text-align: center;
+        padding: 11px;
+        border-radius: 5px;
+    }
+
+    .nav .login-btn {
+        margin-left: 0;
+    }
+
+
+ 
+
+ 
+    
+
+    /* Sections */
+
+    .section-title {
+        gap: 7px;
+    }
+
+    .section-title h2 {
+        font-size: 18px;
+    }
+
+    .section-title span {
+        width: 30px;
+    }
+
+
+    /* Products */
+
+    .categories {
+        overflow-x: auto;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        padding-bottom: 5px;
+    }
+
+    .category {
+        white-space: nowrap;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .product-image {
+        height: 145px;
+    }
+
+    .product-image img {
+        height: 135px;
+    }
+
+
+    /* Team */
+
+    .directors {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .org-line::after {
+        display: none;
+    }
+
+    .director img {
+        width: 105px;
+        height: 105px;
+    }
+
+
+    /* Gallery */
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-card img {
+        height: 150px;
+    }
+
+
+    /* Info */
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-box {
+        border-right: none;
+        border-bottom: 1px solid #d5ddd8;
+        padding: 15px;
+    }
+
+    .info-box:last-child {
+        border-bottom: none;
+    }
+
+
+    /* Footer */
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        padding: 25px 15px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .hero-slide {
+        height: 190px;
+    }
+
+    .hero-content h1 {
+        font-size: 21px;
+    }
+
+    .hero-content p {
+        font-size: 7px;
+    }
+
+    .product-image {
+        height: 125px;
+    }
+
+    .product-image img {
+        height: 115px;
+    }
+
+    .gallery-card img {
+        height: 120px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-img {
+    max-height: 40px; /* Controls small logo size inside header */
+    width: auto;
+    object-fit: contain;
+}
+
+.company-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    white-space: nowrap;
+}
+
+
+
+/* Container alignment */
+.brand-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.15;
+}
+
+/* 1. Company Name: Big font with dark green color */
+.brand-name {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #034d3d; /* Dark Green */
+    letter-spacing: -0.2px;
+}
+
+/* 2. Business Type: Small font with a deeper/darker green color */
+.brand-type {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #01261c; /* Deeper Darker Green */
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-top: 2px;
+}
+
+/* 3. Motto: Medium font, green color with stylized/serif font */
+.brand-motto {
+    font-size: 0.88rem;
+    font-weight: 500;
+    font-style: italic;
+    font-family: 'Georgia', 'Playfair Display', 'Times New Roman', serif; /* Complex serif font */
+    color: #008767; /* Green */
+    margin-top: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   HERO SLIDER
+========================================================= */
+
+.hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 360px;
+}
+
+
+/* Each slide */
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.7s ease,
+        visibility 0.7s ease;
+
+    z-index: 1;
+}
+
+
+/* Active slide */
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+
+/* Banner image */
+
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content {
+    position: absolute;
+
+    top: 50%;
+    left: 9%;
+
+    transform: translateY(-50%);
+
+    z-index: 5;
+}
+
+.hero-content h1 {
+    margin: 0;
+
+    color: #006b4f;
+
+    font-size: clamp(30px, 4vw, 50px);
+
+    line-height: 1.15;
+
+    font-weight: 700;
+}
+
+.hero-content p {
+    margin: 12px 0 20px;
+
+    color: #31544a;
+
+    font-size: 15px;
+}
+
+.shop-btn {
+    display: inline-block;
+
+    background: #006b4f;
+
+    color: #fff;
+
+    padding: 11px 22px;
+
+    border-radius: 25px;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.shop-btn:hover {
+    background: #004d3a;
+    color: #fff;
+}
+
+
+/* =========================================================
+   PREVIOUS / NEXT BUTTON
+========================================================= */
+
+.slider-arrow {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 20;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    color: #fff;
+
+    font-size: 32px;
+
+    line-height: 35px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s;
+}
+
+.slider-arrow:hover {
+    background: #006b4f;
+}
+
+.slider-arrow.left {
+    left: 15px;
+}
+
+.slider-arrow.right {
+    right: 15px;
+}
+
+
+/* =========================================================
+   SLIDER DOTS
+========================================================= */
+
+.slider-dots {
+    position: absolute;
+
+    bottom: 15px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 20;
+
+    display: flex;
+
+    gap: 8px;
+}
+
+.dot {
+    width: 11px;
+    height: 11px;
+
+    padding: 0;
+
+    border: 2px solid #fff;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.dot.active {
+    background: #fff;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .hero-slider {
+        height: 320px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .hero-slider {
+        height: 230px;
+    }
+
+    .hero-content {
+        left: 6%;
+    }
+
+    .hero-content h1 {
+        font-size: 25px;
+    }
+
+    .hero-content p {
+        font-size: 9px;
+
+        margin: 8px 0 12px;
+    }
+
+    .shop-btn {
+        font-size: 10px;
+
+        padding: 8px 15px;
+    }
+
+    .slider-arrow {
+        width: 32px;
+        height: 32px;
+
+        font-size: 25px;
+    }
+
+    .slider-arrow.left {
+        left: 8px;
+    }
+
+    .slider-arrow.right {
+        right: 8px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .hero-slider {
+        height: 190px;
+    }
+
+    .hero-content h1 {
+        font-size: 21px;
+    }
+
+    .hero-content p {
+        font-size: 7px;
+    }
+
+    .shop-btn {
+        font-size: 9px;
+
+        padding: 7px 13px;
+    }
+
+}
+
+
